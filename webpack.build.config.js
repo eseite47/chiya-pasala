@@ -12,11 +12,15 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader'
+        use: ['style-loader', 'css-loader', 'resolve-url-loader'],
+        include: [
+          path.join(__dirname, 'src'),
+          /node_modules/
         ],
-        include: defaultInclude
+      },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        loader: 'url-loader?limit=100000'
       },
       {
         test: /\.jsx?$/,
@@ -32,7 +36,15 @@ module.exports = {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         use: [{ loader: 'file-loader?name=font/[name]__[hash:base64:5].[ext]' }],
         include: defaultInclude
-      }
+      },
+      {
+        test: /\.(scss|sass)$/i,
+        include: [
+          path.resolve(__dirname, 'node_modules'),
+          path.resolve(__dirname, 'path/to/imported/file/dir'),
+        ],
+        loaders: ["css", "sass"]
+      },
     ]
   },
   target: 'electron-renderer',

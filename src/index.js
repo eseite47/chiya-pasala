@@ -5,6 +5,7 @@ import { render } from 'react-dom'
 import App from './components/app'
 
 // Import CSS stylesheet
+import 'semantic-ui-css/semantic.min.css'
 import './assets/css/app.css'
 
 // Since we are using HtmlWebpackPlugin WITHOUT a template, we should create our own root node in the body element before rendering into it
