@@ -10,7 +10,7 @@
     "postpackage": "electron-packager ./ --out=./builds"
   },
   "devDependencies": {
-    "@babel/core": "7.9.0",
+    "@babel/core": "7.12.3",
     "@babel/preset-react": "7.9.4",
     "babel-loader": "8.1.0",
     "babili-webpack-plugin": "0.1.2",
